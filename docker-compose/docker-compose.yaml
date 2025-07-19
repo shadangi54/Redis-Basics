@@ -1,0 +1,13 @@
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+      
+  product-service:
+    image: "shadangi54/redis-practice:1.0"
+    container_name: product-service
+    ports:
+      - 8080:8080
+    depends_on:
+      - redis
